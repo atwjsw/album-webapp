@@ -1,0 +1,44 @@
+移动端的WEB相册
+
+- http://www.imooc.com/learn/140
+- 简介：移动端开发越来越火热，WebAPP应用也层出不穷，如何开发常用移动端相册类网页，本课程通过一个移动端相册，将移动端框架，常见优化手段和触屏设备开发等理论串联起来，使用当下比较流行的CSS3和HTML5技术实现一个针对移动端设备的完整的相册应用。
+
+- iOS 和 Android 都是用web-kit内核，内核就是JS引擎
+- mouseup, mousedown, click时间不适用于移动端。
+- 用CSS3 animation （使用设备GPU渲染，可以利用设备本身的计算能力）代替DOM animation. (DOM animation效率低)
+
+# 移动端与PC端开发框架和库的差异
+- PC端开发框架可库关注浏览器差异和兼容性，
+- 移动端的浏览器相对单一和现代，更强调轻和效率，网速和硬件条件低
+- 移动端框架： JQM， Angular mobile， Zepto.js
+
+# touch
+- click事件存在300ms延时
+- touch事件支持多点触摸
+- 手势操作
+
+# Canvas和GPU render
+- 使用Canvas代替Image标签
+- image标签是通过手机浏览器渲染的，如果图片多，尺寸大，手机性能差，图片展示会非常卡
+- 为了触发设备GPU的渲染，可以使用Canvas渲染
+- drawImage(image, x, y, width, height); 通过width和height控制图片的缩放
+- 通过[Image Object]预加载图片，对加载的图片按照一定的比例进行缩放
+
+#CSS3 Animation
+@keyframes (百分比， 0， 25%， 50%， 100%)
+animation-name
+animation-duration (执行时间)
+animation-delay （延时，相当于setTimeout）
+animation-timing-function （线型。。。，由快到慢，有慢到快）
+animation-play-state （是否在执行，running， paused）
+animation-iteration-infinite (无限循环)
+
+动画事件
+webkitAnimationEnd
+
+CSS3框架
+- Animate.css
+
+图片的宽高不一致如何解决
+- 统一父元素宽高，超出部分隐藏
+- li {float:left;width: 100px; height: 100px; overflow:hidden;}
